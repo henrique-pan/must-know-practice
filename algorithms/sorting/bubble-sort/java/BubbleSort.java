@@ -22,7 +22,7 @@ public class BubbleSort {
             printArray(array);
       }
 
-      static void bubbleSort(int[] array) {
+      public static void bubbleSort(int[] array) {
             int s = array.length;
 
             while(s > 1) {
@@ -36,6 +36,25 @@ public class BubbleSort {
                   s--;
             }
       }
+
+      public static void bubbleSort2(int[] array) {
+        for (int i = array.length-1; i >= 0 ; i--) {
+            boolean isSorted = true;
+            for (int j = 0; j < i; j++) {
+                if(array[j] > array[j+1]) {
+                    int t = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = t;
+
+                    isSorted = false;
+                }
+            }
+            if(isSorted) {
+                System.out.println("The array is already sorted: i = " + i);
+                return;
+            }
+        }
+    }
 
       private static void printArray(int[] array) {
             for (int i = 0; i < array.length; i++) {

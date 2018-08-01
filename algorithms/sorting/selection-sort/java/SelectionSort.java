@@ -46,6 +46,22 @@ public class SelectionSort {
 		}
 	}
 
+	public static void selectionSort2(int[] array) {
+        for (int i = 0; i < array.length-1; i++) {
+            int lowerIndex = i;
+            for (int j = i; j < array.length; j++) {
+                if(i != j && array[j] < array[lowerIndex]) {
+                    lowerIndex = j;
+                }
+            }
+            if(i != lowerIndex) {
+                int t = array[i];
+                array[i] = array[lowerIndex];
+                array[lowerIndex] = t;
+            }
+        }
+    }
+
 
 	private static void printArray(int[] array) {
 		for(int i = 0; i < array.length; i++) {

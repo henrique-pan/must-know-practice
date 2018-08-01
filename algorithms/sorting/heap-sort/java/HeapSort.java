@@ -64,6 +64,40 @@ public class HeapSort {
 		}
 	}
 
+	public static void sortMin(int[] array) {
+        int size = array.length;
+
+        for(int i = (size/2) - 1; i >= 0; i--) {
+            heapfyMin(array, i);
+        }
+
+        for(int i = 1; i < size; i++) {
+            heapfyMin(array, i);
+        }
+    }
+
+    public static void heapfyMin(int[] array, int ini) {
+        int leftIndex = (ini * 2) + 1 - ini;
+        int rightIndex = (ini * 2) + 2 - ini;
+        int nextIndex = ini;
+
+        if(leftIndex < array.length && array[nextIndex] > array[leftIndex]) {
+            nextIndex = leftIndex;
+        }
+
+        if(rightIndex < array.length && array[nextIndex] > array[rightIndex]) {
+            nextIndex = rightIndex;
+        }
+
+        if(nextIndex != ini) {
+            int t = array[ini];
+            array[ini] = array[nextIndex];
+            array[nextIndex] = t;
+
+            heapfyMin(array, nextIndex);
+        }
+    }
+
 	private static void printArray(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");

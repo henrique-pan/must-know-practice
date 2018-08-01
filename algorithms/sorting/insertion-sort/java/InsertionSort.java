@@ -39,6 +39,35 @@ public class InsertionSort {
       	}
       }
 
+      public static void insertionSort2(int[] array) {
+        for (int i = 1; i <= array.length - 1; i++) {
+            int pivot = i;
+            for (int j = i - 1; j >= 0; j--) {
+                if(array[pivot] < array[j]) {
+                    int t = array[pivot];
+                    array[pivot] = array[j];
+                    array[j] = t;
+
+                    pivot--;
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void insertionSort3(int[] array) {
+        for (int i = 1; i <= array.length - 1; i++) {
+            int pivot = i;
+            int j = i - 1;
+            while(j >= 0 && array[pivot] < array[j]) {
+                int t = array[pivot];
+                array[pivot--] = array[j];
+                array[j--] = t;
+            }
+        }
+    }
+
 
       private static void printArray(int[] array) {
       	for (int i = 0; i < array.length; i++) {

@@ -23,7 +23,7 @@ public class OneAway {
 		int longest = s1Length > s2Length ? s1Length : s2Length;		
 
 		if(Math.abs(s1Length - s2Length) > 1) {
-				return false;
+			return false;
 		}
 
 		boolean foundDifference = false;
